@@ -181,10 +181,7 @@ hello_thread(std::promise<uint16_t>& future_node_id)
    }
 
    // Finalize UDS
-   res = nn::uds::Cafe::Finalize();
-   if (res.IsFailure()) {
-      WHBLogPrintf("nn::uds::Cafe::Finalize failed! Error: 0x%X, Sum: %d, Desc: %d", RAW_RESULT(res), res.GetSummary(), res.GetDescription());
-   }
+   nn::uds::Cafe::Finalize();
 
    // Free the previously allocated memory
    free(workMem);
